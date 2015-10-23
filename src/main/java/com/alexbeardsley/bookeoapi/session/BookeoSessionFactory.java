@@ -17,9 +17,6 @@ public class BookeoSessionFactory {
 		this.secretKey = secretKey;
 	}
 
-	// application id: 4TNUKR6KTY49
-	// secret key: O3viuxHYHybUvCKhxMyXuSOwQhT18l1t
-	// api key: A9WHXM3FE4TNUKR6KTY493153MRC69414732D898E3
 	public void registerNewApplication(String apiKey) {
 		if (!sessionCache.containsKey(apiKey)) {
 			synchronized (sessionCache) {
