@@ -39,21 +39,6 @@
 	</repositories>
 
 	<dependencies>
-<!-- 		<dependency>
-			<groupId>com.sun.jersey</groupId>
-			<artifactId>jersey-client</artifactId>
-			<version>1.19</version>
-		</dependency>
-		<dependency>
-			<groupId>com.sun.jersey</groupId>
-			<artifactId>jersey-json</artifactId>
-			<version>1.19</version>
-		</dependency>
-		<dependency>
-			<groupId>com.sun.jersey.contribs</groupId>
-			<artifactId>jersey-multipart</artifactId>
-			<version>1.19</version>
-		</dependency>-->
 		<dependency>
 			<groupId>org.glassfish.jersey.core</groupId>
 			<artifactId>jersey-client</artifactId>
@@ -63,20 +48,13 @@
 			<groupId>org.glassfish.jersey.media</groupId>
 			<artifactId>jersey-media-multipart</artifactId>
 			<version>2.22.1</version>
-		</dependency>
-				
-				
-				
-				
-				
-
+		</dependency>	
 		<dependency>
 			<groupId>org.mockito</groupId>
 			<artifactId>mockito-all</artifactId>
 			<version>1.10.19</version>
 			<scope>test</scope>
 		</dependency>
-
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
@@ -87,9 +65,7 @@
 			<groupId>io.swagger</groupId>
 			<artifactId>swagger-core</artifactId>
 			<version>1.5.3</version>
-		</dependency>
-
-				
+		</dependency>		
 	</dependencies>
 
 	<distributionManagement>
@@ -134,9 +110,8 @@
 						<goals>
 							<goal>jar</goal>
 						</goals>
-						<!-- This is here until Bookeo adds security details to the swagger spec so auto-generation can be done to target\generated-sources-->
 						<configuration>
-							<excludePackageNames>generated.*</excludePackageNames>
+							<excludePackageNames>com.bookeo.api.*</excludePackageNames>
 						</configuration>
 					</execution>
 				</executions>
@@ -164,8 +139,7 @@
 	          <target>1.8</target>
 	        </configuration>
 	      </plugin>
-	      <!-- This is commented out until Bookeo adds security details to the swagger spec so auto-generation can be done to target\generated-sources-->
-		  <!-- <plugin>
+		  <plugin>
 	        <groupId>org.codehaus.mojo</groupId>
 	        <artifactId>exec-maven-plugin</artifactId>
 	        <version>1.4.0</version>
@@ -181,22 +155,20 @@
 	          <executable>java</executable>
 	          <arguments>
 	            <argument>-jar</argument>
-	            <argument>${basedir}\lib\swagger-codegen-cli.jar</argument>
+	            <argument>${basedir}/lib/swagger-codegen-cli.jar</argument>
 	            <argument>generate</argument>
 	            <argument>-i</argument>
 	            <argument>http://www.bookeo.com/apiref/swagger.json</argument>
 	            <argument>-l</argument>
 	            <argument>java</argument>
 	            <argument>-o</argument>
-	          	<argument>${project.build.directory}\generated-sources\bookeo</argument>
-	          	<argument>${basedir}</argument>
+	          	<argument>${project.build.directory}/generated-sources/bookeo</argument>
 	          	<argument>-c</argument>
-	          	<argument>${basedir}\src\main\resources\bookeo-swagger-config.json</argument>
-	          </arguments>
+	          	<argument>${basedir}/src/main/resources/bookeo-swagger-config.json</argument>
+	          </arguments>	          
 	        </configuration>
-	      </plugin>-->
-	      <!-- This is only here until Bookeo adds security details to the swagger spec so auto-generation can be done to target\generated-sources -->
-	      <!-- <plugin>
+	      </plugin>
+	      <plugin>
 	        <groupId>org.codehaus.mojo</groupId>
 	        <artifactId>build-helper-maven-plugin</artifactId>
 	        <version>1.7</version>
@@ -209,12 +181,12 @@
 	            </goals>
 	            <configuration>
 	              <sources>
-	                <source>${project.build.directory}\generated-sources\bookeo\src\gen\java</source>
+	                <source>${project.build.directory}\generated-sources\bookeo\src\main\java</source>
 	              </sources>
 	            </configuration>
 	          </execution>
 	        </executions>
-	      </plugin> -->
+	      </plugin>
 		</plugins>
 	</build>
 </project>

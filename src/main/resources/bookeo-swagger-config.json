@@ -1,6 +1,6 @@
 {
-  "apiPackage":"generated.com.bookeo.api.service",
-  "modelPackage":"generated.com.bookeo.api.model",
-  "invokerPackage":"generated.com.bookeo.api.request",
+  "apiPackage":"com.bookeo.api.service",
+  "modelPackage":"com.bookeo.api.model",
+  "invokerPackage":"com.bookeo.api.request",
   "library":"jersey2"
 }

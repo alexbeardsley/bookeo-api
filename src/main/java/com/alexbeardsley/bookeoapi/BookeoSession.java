@@ -1,16 +1,16 @@
-package com.alexbeardsley.bookeoapi.session;
+package com.alexbeardsley.bookeoapi;
 
-import generated.com.bookeo.api.request.ApiClient;
-import generated.com.bookeo.api.service.AvailabilityApi;
-import generated.com.bookeo.api.service.BookingsApi;
-import generated.com.bookeo.api.service.CustomersApi;
-import generated.com.bookeo.api.service.HoldsApi;
-import generated.com.bookeo.api.service.PaymentsApi;
-import generated.com.bookeo.api.service.ResourceBlocksApi;
-import generated.com.bookeo.api.service.SeatBlocksApi;
-import generated.com.bookeo.api.service.SettingsApi;
-import generated.com.bookeo.api.service.SubaccountsApi;
-import generated.com.bookeo.api.service.WebhooksApi;
+import com.bookeo.api.request.ApiClient;
+import com.bookeo.api.service.AvailabilityApi;
+import com.bookeo.api.service.BookingsApi;
+import com.bookeo.api.service.CustomersApi;
+import com.bookeo.api.service.HoldsApi;
+import com.bookeo.api.service.PaymentsApi;
+import com.bookeo.api.service.ResourceBlocksApi;
+import com.bookeo.api.service.SeatBlocksApi;
+import com.bookeo.api.service.SettingsApi;
+import com.bookeo.api.service.SubaccountsApi;
+import com.bookeo.api.service.WebhooksApi;
 
 public class BookeoSession {
 	protected ApiClient client;
