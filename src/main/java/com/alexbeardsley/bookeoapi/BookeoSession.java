@@ -69,46 +69,4 @@ public class BookeoSession {
 	public WebhooksApi webhooksApi() {
 		return webHooksApi;
 	}
-
-//	protected void addAuthenticationData(Invocation.Builder builder) {
-//		builder.header("secretKey", this.secretKey);
-//		builder.header("apiKey", this.apiKey);
-//	}
-//	
-//	public List<GetSeatBlockResponse> getSeatBlocks() {
-//		WebTarget target = this.client.target(this.baseUrl).path("seatblocks");
-//		Invocation.Builder builder = target.request(MediaType.APPLICATION_JSON_TYPE);
-//		addAuthenticationData(builder);
-//		return builder.get(List.class);
-//	}
-//	
-//	public List<GetSeatBlockResponse> getSeatBlocks() {
-//		WebTarget target = this.client.target(this.baseUrl).path("seatblocks");
-//		Invocation.Builder builder = target.request(MediaType.APPLICATION_JSON_TYPE);
-//		addAuthenticationData(builder);
-//		return builder.get(List.class);
-//	}
-
-//	protected WebTarget getNewWebTargetBuilder() {
-//		WebTarget webTarget = this.client.target(this.baseUrl);
-//		Invocation.Builder invocationBuilder = webTarget
-//				.request(MediaType.APPLICATION_JSON_TYPE);
-//		addAuthenticationData(invocationBuilder);
-//		return webTarget;
-//	}
-
-	/*
-	 * WebTarget resourceWebTarget = webTarget.path("resource"); WebTarget
-	 * helloworldWebTarget = resourceWebTarget.path("helloworld"); WebTarget
-	 * helloworldWebTargetWithQueryParam =
-	 * helloworldWebTarget.queryParam("greeting", "Hi World!");
-	 * 
-	 * Invocation.Builder invocationBuilder =
-	 * helloworldWebTargetWithQueryParam.request(MediaType.TEXT_PLAIN_TYPE);
-	 * invocationBuilder.header("some-header", "true");
-	 * invocationBuilder.header("secretKey", secretKey);
-	 * invocationBuilder.header("apiKey", apiKey); Response response =
-	 * invocationBuilder.get(); System.out.println(response.getStatus());
-	 * System.out.println(response.readEntity(String.class));
-	 */
 }
