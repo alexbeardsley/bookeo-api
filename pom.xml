@@ -185,6 +185,9 @@
 						<goals>
 							<goal>jar</goal>
 						</goals>
+						<configuration>
+							<excludePackageNames>com.bookeo.api.*</excludePackageNames>
+						</configuration>
 					</execution>
 				</executions>
 			</plugin>
