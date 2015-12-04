@@ -7,18 +7,22 @@ A Java implementation of Bookeo's REST API using jersey. Includes a Maven plugin
 
 ### Installation:
 
-`<dependency>`
-`  <groupId>com.alexbeardsley</groupId>`
-`  <artifactId>bookeo-api</artifactId>`
-`  <version>0.1.0</version>`
-`</dependency>`
+```
+<dependency>
+  <groupId>com.alexbeardsley</groupId>
+  <artifactId>bookeo-api</artifactId>
+  <version>0.1.1</version>
+</dependency>
+```
 
 ###Usage
-`//Ideally there should only be one BookeoSessionFactory per Bookeo application.`
-`BookeoSessionFactory sessionFactory = new BookeoSessionFactory("myApplicationsPrivateKey");`
-`BookeoSession session = sessionFactory.getSession("clientsApiKey");`
-`BookingsList bookings = session.bookings().bookingsGet(..)`
-`//Other API calls are available on BookeoSession`
+```
+//Ideally there should only be one BookeoSessionFactory per Bookeo application.
+BookeoSessionFactory sessionFactory = new BookeoSessionFactory("myApplicationsPrivateKey");
+BookeoSession session = sessionFactory.getSession("clientsApiKey");
+BookingsList bookings = session.bookings().bookingsGet(..)
+//Other API calls are available on BookeoSession
+```
 
 The Maven repository release includes everything, however this project's source code __does not include the proxy objects and services used to exchange data with Bookeo__. Source files are generated with Maven by using the following command: 
 
