@@ -33,6 +33,3 @@ Which generates objects into target/generated-sources. It can be packaged into a
 _mvn package_
 
 These objects are generated directly from Bookeo's Swagger specification located at [http://www.bookeo.com/apiref/swagger.json](http://www.bookeo.com/apiref/swagger.json).
-
-###Unexpected API Changes
-In the unlikely event of an unexpected API change from Bookeo which breaks your application, you can re-generate these proxy objects a build a temporary JAR using the commands above. It will contain the new proxy objects. Temporarily install it locally via `mvn install` or put it in your Nexus instance until a new release is available.
