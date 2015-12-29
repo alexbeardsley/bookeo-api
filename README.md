@@ -16,6 +16,8 @@ A Java implementation of Bookeo's REST API using jersey. Includes a Maven plugin
 ```
 
 ###Usage
+####Programatically:
+
 ```
 //Ideally there should only be one BookeoSessionFactory per Bookeo application.
 BookeoSessionFactory sessionFactory = new BookeoSessionFactory("myApplicationsPrivateKey");
@@ -24,13 +26,20 @@ BookingsList bookings = session.bookings().bookingsGet(..)
 //Other API calls are available on BookeoSession
 ```
 
+####With Spring:
+```
+<bean name="bookeoSessionFactory" class="com.alexbeardsley.bookeoapi.BookeoSessionFactory">
+    <constructor-arg name="secretKey" value="myApplicationsPrivateKey"/>
+</bean>
+```
+
 The Maven repository release includes everything, however this project's source code __does not include the proxy objects and services used to exchange data with Bookeo__. Source files are generated with Maven by using the following command: 
 
-_mvn clean exec:exec_
+`mvn clean exec:exec`
 
 Which generates objects into target/generated-sources. It can be packaged into a re-usable JAR file via:
 
-_mvn package_
+`mvn package`
 
 These objects are generated directly from Bookeo's Swagger specification located at [http://www.bookeo.com/apiref/swagger.json](http://www.bookeo.com/apiref/swagger.json).
 
