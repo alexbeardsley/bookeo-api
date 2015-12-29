@@ -34,5 +34,10 @@ _mvn package_
 
 These objects are generated directly from Bookeo's Swagger specification located at [http://www.bookeo.com/apiref/swagger.json](http://www.bookeo.com/apiref/swagger.json).
 
-###Unexpected API Changes
-In the unlikely event of an unexpected API change from Bookeo which breaks your application, you can re-generate these proxy objects a build a temporary JAR using the commands above. It will contain the new proxy objects. Temporarily install it locally via `mvn install` or put it in your Nexus instance until a new release is available.
+###Limitations
+At this time Bookeo's API is still in beta and has some limitations. These have been confirmed by their developers as things which will be added in the future:
+
+* You cannot retrieve Notes for a Booking
+* It is not possible to get the time for a Block.
+
+If you come across others with confirmation from a Bookeo developer, please send us a note and we will add it to this list.
