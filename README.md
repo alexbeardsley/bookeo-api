@@ -33,3 +33,11 @@ Which generates objects into target/generated-sources. It can be packaged into a
 _mvn package_
 
 These objects are generated directly from Bookeo's Swagger specification located at [http://www.bookeo.com/apiref/swagger.json](http://www.bookeo.com/apiref/swagger.json).
+
+###Limitations
+At this time Bookeo's API is still in beta and has some limitations. These have been confirmed by their developers as things which will be added in the future:
+
+* You cannot retrieve Notes for a Booking
+* It is not possible to get the time for a Block.
+
+If you come across others with confirmation from a Bookeo developer, please send us a note and we will add it to this list.
