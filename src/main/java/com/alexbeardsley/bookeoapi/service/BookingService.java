@@ -4,10 +4,15 @@ import com.bookeo.api.model.BookingsList;
 import com.bookeo.api.request.ApiException;
 
 import java.util.Date;
+import java.util.Map;
 
 public interface BookingService {
-    BookingsList getBookingsBetweenDates(Date startDate, Date endDate) throws ApiException;
-    BookingsList nextPage(Pagination pagination) throws ApiException;
-    BookingsList previousPage(Pagination pagination) throws ApiException;
-    BookingsList atPage(Pagination pagination, int pageNumber) throws ApiException;
+    BookingsList getBookingsBetweenDates(Date startDate, Date endDate);
+    BookingsList getBookingsBetweenDates(Date startDate, Date endDate, int itemsPerPage);
+    BookingsList getBookingsBetweenDatesForProduct(String productId, Date startDate, Date endDate);
+    BookingsList getBookingsBetweenDatesForProduct(String productId, Date startDate, Date endDate, int itemsPerPage);
+    BookingsList nextPage(Pagination pagination);
+    BookingsList previousPage(Pagination pagination);
+    BookingsList atPage(Pagination pagination, int pageNumber);
+
 }

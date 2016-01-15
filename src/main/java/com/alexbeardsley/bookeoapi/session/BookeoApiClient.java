@@ -1,4 +1,4 @@
-package com.alexbeardsley.bookeoapi;
+package com.alexbeardsley.bookeoapi.session;
 
 import com.bookeo.api.request.ApiClient;
 

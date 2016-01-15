@@ -1,10 +1,12 @@
 package com.alexbeardsley.bookeoapi.service;
 
+import com.alexbeardsley.bookeoapi.service.exception.GenericApiException;
 import com.bookeo.api.model.BookingsList;
 import com.bookeo.api.request.ApiException;
 import com.bookeo.api.service.BookingsApi;
 
 import java.util.Date;
+import java.util.Map;
 
 public class BookeoBookingService implements BookingService {
     protected BookingsApi bookingApi;
@@ -14,27 +16,55 @@ public class BookeoBookingService implements BookingService {
     }
 
     @Override
-    public BookingsList getBookingsBetweenDates(Date startDate, Date endDate) throws ApiException {
-        return bookingApi.bookingsGet(startDate, endDate, null, null, null, null, null, null, null, null, null);
+    public BookingsList getBookingsBetweenDates(Date startDate, Date endDate) {
+        try {
+            return bookingApi.bookingsGet(startDate, endDate, null, null, null, null, null, null, null, null, null);
+        } catch (ApiException e) {
+            throw new GenericApiException(e);
+        }
     }
 
     @Override
-    public BookingsList nextPage(Pagination pagination) throws ApiException {
+    public BookingsList getBookingsBetweenDates(Date startDate, Date endDate, int itemsPerPage) {
+
+        try {
+            return bookingApi.bookingsGet(startDate, endDate, null, null, null, null, null, null, itemsPerPage, null, null);
+        } catch (ApiException e) {
+            throw new GenericApiException(e);
+        }
+    }
+
+    @Override
+    public BookingsList getBookingsBetweenDatesForProduct(String productId, Date startDate, Date endDate) {
+        return null;
+    }
+
+    @Override
+    public BookingsList getBookingsBetweenDatesForProduct(String productId, Date startDate, Date endDate, int itemsPerPage) {
+        return null;
+    }
+
+    @Override
+    public BookingsList nextPage(Pagination pagination) {
         return getPreviousBookingResultsForPage(pagination, pagination.getPageNumber() + 1);
     }
 
     @Override
-    public BookingsList previousPage(Pagination pagination) throws ApiException {
+    public BookingsList previousPage(Pagination pagination) {
         return getPreviousBookingResultsForPage(pagination, pagination.getPageNumber() - 1);
     }
 
     @Override
-    public BookingsList atPage(Pagination pagination, int pageNumber) throws ApiException {
+    public BookingsList atPage(Pagination pagination, int pageNumber) {
         return getPreviousBookingResultsForPage(pagination, pageNumber);
     }
 
-    private BookingsList getPreviousBookingResultsForPage(Pagination pagination, int pageNumber) throws ApiException {
+    private BookingsList getPreviousBookingResultsForPage(Pagination pagination, int pageNumber) {
         Pagination pageRequest = new Pagination(pagination.getItemsPerPage(), pageNumber, pagination.getPageNavigationToken());
-        return bookingApi.bookingsGet(null, null, null, null, null, null, null, null, null, pageRequest.getPageNavigationToken(), pageRequest.getPageNumber());
+        try {
+            return bookingApi.bookingsGet(null, null, null, null, null, null, null, null, null, pageRequest.getPageNavigationToken(), pageRequest.getPageNumber());
+        } catch (ApiException e) {
+            throw new GenericApiException(e);
+        }
     }
 }

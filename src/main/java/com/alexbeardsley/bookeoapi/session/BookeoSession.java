@@ -1,4 +1,4 @@
-package com.alexbeardsley.bookeoapi;
+package com.alexbeardsley.bookeoapi.session;
 
 import com.alexbeardsley.bookeoapi.service.BookeoBookingService;
 import com.alexbeardsley.bookeoapi.service.BookingService;
@@ -17,7 +17,6 @@ import com.bookeo.api.service.WebhooksApi;
 public class BookeoSession {
 	protected ApiClient client;
 	protected BookingService bookingService;
-	protected AvailabilityApi availabilityApi = null;
 	protected CustomersApi customersApi = null;
 	protected HoldsApi holdsApi = null;
 	protected PaymentsApi paymentsApi = null;
@@ -30,7 +29,6 @@ public class BookeoSession {
 	public BookeoSession(ApiClient client) {
 		this.client = client;
 		bookingService = new BookeoBookingService(new BookingsApi(client));
-		availabilityApi = new AvailabilityApi(client);
 		customersApi = new CustomersApi(client);
 		holdsApi = new HoldsApi(client);
 		paymentsApi = new PaymentsApi(client);
@@ -43,9 +41,6 @@ public class BookeoSession {
 	
 	public BookingService bookings() {
 		return bookingService;
-	}
-	public AvailabilityApi availability() {
-		return availabilityApi;
 	}
 	public CustomersApi customers() {
 		return customersApi;
